@@ -1,6 +1,0 @@
----
-- name: Create file
-  hosts: localhost
-  gather_facts: false
-  roles:
-    - my_own_role
