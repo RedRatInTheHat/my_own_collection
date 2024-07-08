@@ -1,0 +1,9 @@
+---
+- name: Create file
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Create file
+      my_own_module:
+        path: /tmp/file.txt
+        content: "There is nothing here."
