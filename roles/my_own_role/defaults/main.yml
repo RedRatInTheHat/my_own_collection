@@ -1,0 +1,5 @@
+---
+path: /tmp/file
+content: "Wow!\n
+  So much text!\n
+  So much Ansible!"
