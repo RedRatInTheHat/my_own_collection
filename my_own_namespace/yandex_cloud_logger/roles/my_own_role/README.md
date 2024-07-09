@@ -1,38 +1,35 @@
 Role Name
 =========
 
-A brief description of the role goes here.
+Роль для создания файлов. Позволяет указать директорию и название файла, а также задать содержимое файла. 
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+* Ansible core 2.12.0 и выше.
+* На стороне хоста: 
+    * SSH service;
+    * Python версии, [соответствующей Ansible core](https://docs.ansible.com/ansible/latest/reference_appendices/release_and_maintenance.html#ansible-core-support-matrix).
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+[defaults/main.yml](defaults/main.yml)
 
-Dependencies
-------------
-
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+| Параметр | Default | Что это |
+|----------|---------|---------|
+| path | /tmp/file |  Полный путь до файла, включая его название. |
+| path | "Wow!\n<br/>So much text!\n<br/>So much Ansible!" |  Содержимое файла |
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+```yml
+- name: Create file
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - ansible.builtin.import_role:
+        name: my_own_role
+```
 
-    - hosts: servers
-      roles:
-         - { role: username.rolename, x: 42 }
-
-License
--------
-
-BSD
-
-Author Information
-------------------
-
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).

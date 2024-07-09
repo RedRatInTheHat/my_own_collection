@@ -1,8 +1,0 @@
----
-- name: Create file
-  hosts: localhost
-  gather_facts: false
-  tasks:
-    - name: Create file
-      ansible.builtin.include_role:
-        name: my_own_role

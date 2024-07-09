@@ -1,0 +1,11 @@
+---
+- name: Create file
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - ansible.builtin.import_role:
+        name: my_own_namespace.yandex_cloud_logger.my_own_role
+    - name: Create file with module
+      my_own_namespace.yandex_cloud_logger.my_own_module:
+        path: /tmp/some_file
+        content: Some content
